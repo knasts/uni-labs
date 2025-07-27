@@ -1,6 +1,3 @@
-/* 14. Знайти середні значення і стандартні відхилення для елементів
-масивів X (N), Y (M).*/
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -33,7 +30,7 @@ void average_value(int* array, int i, float* value)
     {
         sum += array[j];
     }
-    *value = (float)sum/i; //обчислюємо значення та зберігаємо через вказівник
+    *value = (float)sum/i; 
 }
 
 void deviation_from_aver_value(int* array, int i, float* value)
@@ -81,7 +78,7 @@ int main()
 
     print_arr(array1, N);
     print_arr(array2, M);
-                //передаємо адресу змінної через & у функцію
+                
     average_value(array1, N, &value1);
     average_value(array2, M, &value2);
     printf("Average element`s value in the first array: %0.1f \n", value1);
