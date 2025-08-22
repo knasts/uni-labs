@@ -1,14 +1,6 @@
-/* Ðåàë³çóâàòè àëãîðèòì çíàõîäæåííÿ ïðîñòèõ ÷èñåë çâè÷àéíèì ïåðåáîðîì
-ä³ëüíèê³â, äëÿ öüîãî ñòâîðèòè ôóíêö³þ ÿêà ïåðåâ³ðÿº îäíå ÷èñëî íà
-ïðîñòîòó: bool isPrime(int number) { ... }
-Âèêîíàòè çàäà÷ó ïî âàð³àíòó, çàì³ðÿòè ÷àñ ðîáîòè.
-Çíàéòè 24-òå, 37-ìå, 46-òå, 111-òå çà ðàõóíêîì ïðîñòå ÷èñëî. */
-
 
 #include <iostream>
 #include <cmath>
-#include <locale>
-#include <windows.h>
 #include <ctime>
 #include <time.h>
 
@@ -19,7 +11,7 @@ bool isPrime(int number)
     if(number == 0 || number == 1)
     {
         return false;
-    }   //áî 2 ââàæàºòüñÿ ïåðøèì ïðîñòèì ÷èñëîì
+    }   
     for(int k = 2; k <= sqrt(number); k++)
     {
         if((number % k) == 0 )
@@ -66,4 +58,5 @@ int main()
 
     return 0;
 }
+
 
