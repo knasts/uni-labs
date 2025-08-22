@@ -4,7 +4,7 @@
 #include <windows.h>
 #include <ctime>
 #include <time.h>
-//Знайти 24-те, 37-ме, 46-те, 111-те за рахунком просте число.
+//Г‡Г­Г Г©ГІГЁ 24-ГІГҐ, 37-Г¬ГҐ, 46-ГІГҐ, 111-ГІГҐ Г§Г  Г°Г ГµГіГ­ГЄГ®Г¬ ГЇГ°Г®Г±ГІГҐ Г·ГЁГ±Г«Г®.
 using namespace std;
 
 void isPrime(bool array_prime[], int N)
@@ -12,7 +12,7 @@ void isPrime(bool array_prime[], int N)
    for(int n = 2; n < N; n++)
         {
             if(array_prime[n] == true)
-            {    //всі числа кратні n позначаються як непрості
+            {    
                 for (int i = n * n; i < N; i = i + n)
                 {
                     array_prime[i] = false;
@@ -34,6 +34,7 @@ int main()
     bool array_prime[N];
     const int goal = 112;
     int array_prime1[goal];
+    double seconds = 0;
 
 
     for (int k = 0; k < N; k++)
@@ -46,7 +47,6 @@ int main()
     clock_t startTime = clock();
 
     isPrime(array_prime, N);
-
 
     for (int t = 0; t <= 8000; t++)
     {
@@ -61,12 +61,15 @@ int main()
     }
 
     clock_t endTime = clock();
-    double seconds = (double (endTime - startTime));
-    cout << "24-те за рахунком просте число це " << array_prime1[23] << endl;
-    cout << "37-ме за рахунком просте число це " << array_prime1[36] << endl;
-    cout << "46-те за рахунком просте число це " << array_prime1[45] << endl;
-    cout << "111-те за рахунком просте число це " << array_prime1[100] << endl;
-    cout << "Час виконання коду - " << seconds << " секунд" << endl;
+    seconds += double (endTime - startTime) / CLOCKS_PER_SEC;
+
+    cout << "24-th prime number is " << array_prime1[23] << endl;
+    cout << "37-th prime number is " << array_prime1[36] << endl;
+    cout << "46-th prime number is " << array_prime1[45] << endl;
+    cout << "111-th prime number is " << array_prime1[110] << endl;
+    cout << "total seconds: " << seconds << endl;
 
     return 0;
 }
+
+    
