@@ -1,20 +1,17 @@
-/*14. Метод «розділяй і володарюй» використовує два рекурсивні
-виклики, кожен з яких працює приблизно з половиною вхідних даних.
-Перевірити за допомогою методу, чи всі елементи масиву А є від’ємними.*/
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#include <stdbool.h> //для роботи bool
-                    //вказує на перший елемент масиву
+#include <stdbool.h> 
+
 bool are_negative(int* array, int N)
 {
     int mid = N / 2;
-    if(N != 1)//розділяємо наш масив на масиви з 1 елементом
-    {                                                   //вказує на елемент масиву під індексом mid
+    if(N != 1)
+    {                                                   
         return are_negative(array, mid) && are_negative(array + mid, N - mid);
     }
-    return array[0] < 0; //якщо кожен елемент в кожному масиві < 0, то поверне true
+    return array[0] < 0; 
 }
 
 int main()
@@ -24,7 +21,7 @@ int main()
     printf("Enter dimension of the array: ");
     scanf("%d", &N);
 
-    int* arrayy = (int *)malloc(N * sizeof(int)); //виділяємо пам'ять
+    int* arrayy = (int *)malloc(N * sizeof(int)); 
     if(arrayy == NULL)
     {
         printf("Memory allocation error\n");
@@ -44,7 +41,7 @@ int main()
     }
     printf("\n");
 
-    answ = are_negative(arrayy, N); //викликаємо ф-цію для перевірки
+    answ = are_negative(arrayy, N); 
     if(answ)
     {
         printf("ALL elements in our array are negative");
@@ -57,3 +54,4 @@ int main()
     free(arrayy);
     return 0;
 }
+
