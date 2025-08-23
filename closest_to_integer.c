@@ -4,7 +4,7 @@
 float calculation(float x, int k)
 {
     int two = 2 * k;
-    int three = 3 * k; //розраховуємо значення елемента за формулою
+    int three = 3 * k; //math formula
     float number = exp(cos(pow(x, two))) * sin(pow(x,three));
     return number;
 }
@@ -49,3 +49,4 @@ int main()
     printf("Our number closest to an integer: %.4f \n" , less_num);
     return 0;
 }
+
