@@ -2,20 +2,15 @@
 #include <stdlib.h>
 #include <string.h>
 
-
-/*Завдання 1. Задано натуральне число n, символи S1, .., Sn. Підрахувати найбільшу
-кількість символів пропуску, що йдуть підряд
-*/
-
 int main()
 {
     int lenMax, len, max, count;
     char* temp;
     printf("Enter the maximum number of characters in the string: ");
     scanf("%d", &lenMax);
-    getchar(); //видаляємо \n після scanf
+    getchar(); 
 
-    char *p = (char*) malloc(lenMax + 1); //бо ще \0 в кінці
+    char *p = (char*) malloc(lenMax + 1); 
     if (p == NULL)
     {
         printf("Memory allocation failed!\n");
@@ -23,9 +18,9 @@ int main()
     }
 
     printf("Enter characters: ");
-    fgets(p, lenMax + 1, stdin); //fgets зчитує enter і додає \n
-    len = strlen(p); //підрахунок к-ті введених символів
-    temp = (char*) realloc(p, len + 1); //бо ще \0 в кінці
+    fgets(p, lenMax + 1, stdin); 
+    len = strlen(p); 
+    temp = (char*) realloc(p, len + 1); 
     if (temp == NULL)
     {
         printf("Memory allocation failed!\n");
@@ -63,3 +58,4 @@ int main()
 
     return 0;
 }
+
