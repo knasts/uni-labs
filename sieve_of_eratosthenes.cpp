@@ -1,10 +1,7 @@
 #include <iostream>
 #include <cmath>
-#include <locale>
-#include <windows.h>
 #include <ctime>
 #include <time.h>
-//Çíàéòè 24-òå, 37-ìå, 46-òå, 111-òå çà ðàõóíêîì ïðîñòå ÷èñëî.
 using namespace std;
 
 void isPrime(bool array_prime[], int N)
@@ -18,16 +15,11 @@ void isPrime(bool array_prime[], int N)
                     array_prime[i] = false;
                 }
             }
-
         }
 }
 
 int main()
 {
-    setlocale(LC_CTYPE, "ukr");
-    SetConsoleCP(1251);
-    SetConsoleOutputCP(1251);
-
     int prime_num = 0;
     int n = 0;
     const int N = 1000;
@@ -73,3 +65,4 @@ int main()
 }
 
     
+
