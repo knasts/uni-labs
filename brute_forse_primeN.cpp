@@ -24,9 +24,6 @@ bool isPrime(int number)
 
 int main()
 {
-    setlocale(LC_CTYPE, "ukr");
-    SetConsoleCP(1251);
-    SetConsoleOutputCP(1251);
     int n = 0;
     int i = 0;
     const int goal = 112;
@@ -58,5 +55,6 @@ int main()
 
     return 0;
 }
+
 
 
