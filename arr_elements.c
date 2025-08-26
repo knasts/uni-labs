@@ -3,13 +3,11 @@
 #include <time.h>
 #include <math.h>
 
-//Дані дійсні числа al, а2, ..., а2n. Отримати а1, an+1, а2, an+2,...,an, а2n.
-
 int main()
 {
     int N, mid, m;
     printf("Enter the dimensions of the array: (must be even) ");
-    scanf("%d", &N); //отримуємо значення n2
+    scanf("%d", &N); 
 
     while(N % 2)
     {
@@ -18,8 +16,8 @@ int main()
         scanf("%d", &N);
     }
 
-    float* array = (float*)malloc(N * sizeof(float)); //створюємо динамічний масив і виділяємо пам'ять для нього
-    if (array == NULL) //перевірка чи вдалось виділити пам'ять
+    float* array = (float*)malloc(N * sizeof(float)); 
+    if (array == NULL) 
     {
         printf("Memory allocation error\n");
         return 1;
@@ -28,7 +26,7 @@ int main()
     srand(time(0));
     for(int i = 0; i < N; i++)
     {
-        array[i] = (rand() % 151) + (rand() / (float)RAND_MAX);//генеруємо для кожного елементу випадкове значення (з плаваючою крапкою)
+        array[i] = (rand() % 151) + (rand() / (float)RAND_MAX);
     }
 
     mid = N/2;
@@ -39,3 +37,4 @@ int main()
     free(array);
     return 0;
 }
+
