@@ -1,7 +1,3 @@
-/* Написати функцію для сортування вставками за критерієм залишку від
-цілочисельного ділення суми всіх цифр числа на 10 у порядку зростання (напр.
-93 < 25, адже 2 < 7), при рівності - спочатку менше за значенням. */
-
 #include <iostream>
 #include <stdlib.h>
 #include <ctime>
@@ -13,7 +9,7 @@ void fisher_yates_shuffling(int arrayy[], int N)
     int k;
     int n;
     for(k = N - 1; k != 0; k = k - 1)
-    {       //від 1 до k
+    {       //ГўВіГ¤ 1 Г¤Г® k
         n = (rand() % k) + 1;
         swap(arrayy[n], arrayy[k]);
     }
@@ -24,7 +20,7 @@ int suma_num(int num)
 {
     int d;
     int suma = 0;
-    for(num; num != 0; num = num / 10) //знаходимо суму всіх чисел числа
+    for(num; num != 0; num = num / 10) 
         {
             d = num % 10;
             suma += d;
@@ -35,7 +31,7 @@ int suma_num(int num)
 void arrayy_insertion_sorting(int arrayy[], int N)
 {
     int n, num, num_l, suma_n, suma_n_left, j;
-    for(n = 1; n < N; n++) //проходимо по всім елементам масиву
+    for(n = 1; n < N; n++) 
     {
         num = arrayy[n];
         suma_n = suma_num(num);
@@ -83,7 +79,7 @@ int main()
     fisher_yates_shuffling(arrayy, N);
 
     arrayy_insertion_sorting(arrayy, N);
-                    //випадкове число від 20 до 199
+                    
     int N_rand = (rand() % 180) + 20;
     int suma_zero = suma_num(arrayy[0]);
     int suma_rand = suma_num(arrayy[N_rand]);
@@ -98,3 +94,4 @@ int main()
 
     return 0;
 }
+
