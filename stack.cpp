@@ -1,11 +1,10 @@
 #include <iostream>
 #include <string>
 #include <time.h>
-#define N 7 //визначаємо розмір історії -- 7
+#define N 7 
 
 using namespace std;
 
-//структура даних подія редагування документа
 struct Event
 {
     string text;
@@ -14,15 +13,16 @@ struct Event
 
 struct Stack
 {
-    int top_index = -1; //індекс вершини стеку
+    int top_index = -1; 
     int stack_size = 0;
-    Event event_arr[N]; //включаємо структуру редагування документа в структуру
+    Event event_arr[N]; 
 
     void push(Event event)
     {
         if(top_index + 1 >= N)
         {
-            cout << "WARNING: the stack is full -- can`t add a new element: text - '"  << event.text << "' on the " << event.row_index << "th row"<< endl;
+            cout << "WARNING: the stack is full -- can`t add a new element: text - '"  << event.text << "' on the " 
+                << event.row_index << "th row"<< endl;
         }
         else
         {
@@ -56,7 +56,7 @@ struct Stack
         return event_arr[top_index];
     }
 
-    bool emptyy() //перевірка на пустоту
+    bool emptyy() 
     {
         if(top_index == -1)
         {
@@ -76,7 +76,7 @@ struct Stack
         stack_size = 0;
     }
 };
-            //передаємо по копії
+            
 void print(Stack my_stack)
 {
     if(my_stack.emptyy())
@@ -87,7 +87,7 @@ void print(Stack my_stack)
     else
     {
         cout << "Editing history of the document 'My Wishlist' contains " << my_stack.sizee() << " events which are:" << endl;
-        while(!my_stack.emptyy()) //поки стек не пустий
+        while(!my_stack.emptyy()) 
         {
             Event top_event = my_stack.top();
             cout << "Writing '" << top_event.text << "' on the " << top_event.row_index << "th row" << endl;
@@ -99,7 +99,7 @@ void print(Stack my_stack)
 Event random_event()
 {
     string text;
-    int row = (rand() % 100) + 1; //генеруємо випадкове значення для радку від 1 до 100
+    int row = (rand() % 100) + 1; 
     if(row % 7 == 0)
     {
         text = "buying a new Maybelline lipstick";
@@ -130,7 +130,7 @@ Event random_event()
     }
     return {text , row};
 }
-                    //передаємо стек по посиланню, щоб змінити наш стек, а не його копію
+                    
 void push_events(Stack &my_stack, int k)
 {
     for(int i = 0; i < k; i++)
@@ -159,11 +159,10 @@ void modified_last_event(Stack &my_stack)
         Event last = my_stack.top();
         pop_events(my_stack, 1);
         string text_add = " in New York";
-        last.text += text_add; //змінюємо лише текст
+        last.text += text_add; 
         my_stack.push(last);
     }
 }
-
 
 int main()
 {
@@ -194,3 +193,4 @@ int main()
 
     return 0;
 }
+
