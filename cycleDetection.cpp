@@ -1,7 +1,17 @@
-﻿// cycleDetection.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
+﻿#include <iostream>
+using namespace std;
 
-#include <iostream>
+struct SinglyLinkedListNode
+{
+    int data;
+    SinglyLinkedListNode* next;
+
+    SinglyLinkedListNode(int nData)
+    {
+        this->data = nData;
+        this->next = nullptr;
+    }
+};
 
 bool has_cycle(SinglyLinkedListNode* head)
 {
@@ -14,18 +24,68 @@ bool has_cycle(SinglyLinkedListNode* head)
     {
         slow = slow->next;
         fast = fast->next->next;
-        if (slow == fast) return 1;
+        if (slow == fast) return true;
+    }
+    return false;
+}
+
+int getLength(SinglyLinkedListNode* head)
+{
+    if (head == nullptr) return 0;
+
+    SinglyLinkedListNode* slow = head;
+    SinglyLinkedListNode* fast = head;
+    int length = 0;
+
+    while (fast != nullptr && fast->next != nullptr)
+    {
+        slow = slow->next;
+        fast = fast->next->next;
+        if (slow == fast)
+        {
+            SinglyLinkedListNode* temp = slow;
+            do
+            {
+                temp = temp->next;
+                length++;
+            } while (temp != slow);
+            return length;
+        }
     }
     return 0;
 }
 
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
+int main()
+{
+    SinglyLinkedListNode* firstHead = new SinglyLinkedListNode(1);
+    firstHead->next = new SinglyLinkedListNode(2);
+    firstHead->next->next = new SinglyLinkedListNode(3);
 
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
+    bool firstSycle = has_cycle(firstHead);
+    if (firstSycle)
+    {
+        cout << "first list is cycle :)" << endl;
+        cout << "first cycle's length: " << getLength(firstHead) << endl;
+    }
+    else cout << "first list is not a cycle :(" << endl;
+
+    SinglyLinkedListNode* secondHead = new SinglyLinkedListNode(1);
+    SinglyLinkedListNode* node1 = new SinglyLinkedListNode(2);
+    SinglyLinkedListNode* node2 = new SinglyLinkedListNode(3);
+    SinglyLinkedListNode* node3 = new SinglyLinkedListNode(4);
+
+    secondHead->next = node1;
+    node1->next = node2;
+    node2->next = node3;
+    node3->next = node1;
+
+    bool secondSycle = has_cycle(secondHead);
+    if (secondSycle)
+    {
+        cout << "second list is cycle :)" << endl;
+        cout << "second cycle's length: " << getLength(secondHead) << endl;
+    }
+    else cout << "second list is not a cycle :(" << endl;
+}   
+
+
